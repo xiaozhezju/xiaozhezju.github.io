@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>AWS Config | Xinyan</title>
+<meta name="description" content="今日长缨在手 何时缚住苍龙">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://xiaozhezju.github.io/favicon.ico?v=1599289152918">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://xiaozhezju.github.io/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://xiaozhezju.github.io">
+        <img class="avatar" src="https://xiaozhezju.github.io/images/avatar.png?v=1599289152918" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://xiaozhezju.github.io">
+        <h1 class="site-title">Xinyan</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            Main
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            Archives
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            Tags
+          </a>
+        
+      
+        
+          <a href="/post/20200905-About-Me" class="menu purple-link">
+            About
+          </a>
+        
+      
+        
+          <a href="/post/test" class="menu purple-link">
+            Test
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+            <div class="feature-container" style="background-image: url('https://xiaozhezju.github.io/post-images/20190216-AWS-Config.jpg')">
+            </div>
+          
+          <h2 class="post-title">AWS Config</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2019-02-16</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://xiaozhezju.github.io/tag/9cdP7y2LNF/">
+                    AWS
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <p>setup procedures for rds database and EC2 Linux server</p>
+<!-- more -->
+<h1 id="aws">AWS</h1>
+<h2 id="rds">rds</h2>
+<p>Rds is short for redshift, which is a product of aws for data warehouse and database.<br>
+Steps for your rds configuration:</p>
+<ol>
+<li>
+<p>sign up &amp; log into your aws console</p>
+</li>
+<li>
+<p>choose database --&gt; rds</p>
+</li>
+<li>
+<p>click create database and setup your database following guidance (using default setting is okay)</p>
+</li>
+<li>
+<p>recommended setting: free tier, engine is Mysql</p>
+</li>
+<li>
+<p>Connect to your database: In terminal</p>
+</li>
+</ol>
+<pre><code class="language-bash">mysql -u username -p pwd -h endpoind 
+</code></pre>
+<p>Please remember your username and password when config your database<br>
+If you use third party software to connect to database, you may also need to provide port<br>
+Endpoint and portcan be found in database --&gt; Connectivity&amp;Security --&gt; Endpoint&amp;Port</p>
+<p>Notice: If you find that you cannot connect to database with correct username and password, please check your security group and change the Inbound IP address to 'All IP' to allow different IP addresses to visit your database.</p>
+<h2 id="ec2">EC2</h2>
+<p>EC2 is a Linux&amp;Windows server for completing computing work online<br>
+Steps for your EC2 configuration:</p>
+<ol>
+<li>
+<p>sign up &amp; log into your aws console</p>
+</li>
+<li>
+<p>choose compute --&gt; EC2</p>
+</li>
+<li>
+<p>click launch instance and setup your database following guidance (using default setting is okay)</p>
+</li>
+<li>
+<p>recommended setting: free tire, Linux, both Ubuntu and CentOS are fine</p>
+</li>
+<li>
+<p>download your pem key file in your computer</p>
+</li>
+<li>
+<p>Open terminal and change the directory to the one where the file above locates</p>
+</li>
+<li>
+<p>input:</p>
+</li>
+</ol>
+<pre><code class="language-bash">chomd 400 pem_file
+</code></pre>
+<p>to make the file become read-only</p>
+<ol start="8">
+<li>connect to the server in terminal</li>
+</ol>
+<pre><code class="language-bash">ssh -i directory/pem_file serverName@IVP4 public IP
+</code></pre>
+<p>serverName is the name of operation system by default. For example, 'ubuntu' for Ubuntu OS and 'centos' OS<br>
+IVP4 public IP can be found in console --&gt; Instances --&gt; Description</p>
+<p>Notice: If you find that you cannot connect to server with correct pem file and IP, please check your security group and change the Inbound IP address to 'All IP' to allow different IP addresses to visit your server.</p>
+
+          </div>
+        </div>
+
+        
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan">今日长缨在手 何时缚住苍龙</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://xiaozhezju.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

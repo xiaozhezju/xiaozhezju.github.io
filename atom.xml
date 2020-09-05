@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://xiaozhezju.github.io</id>
+    <title>Xinyan</title>
+    <updated>2020-09-05T07:00:45.744Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://xiaozhezju.github.io"/>
+    <link rel="self" href="https://xiaozhezju.github.io/atom.xml"/>
+    <subtitle>今日长缨在手 何时缚住苍龙</subtitle>
+    <logo>https://xiaozhezju.github.io/images/avatar.png</logo>
+    <icon>https://xiaozhezju.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2020, Xinyan</rights>
+    <entry>
+        <title type="html"><![CDATA[Hello Gridea]]></title>
+        <id>https://xiaozhezju.github.io/post/20200905-hello-gridea/</id>
+        <link href="https://xiaozhezju.github.io/post/20200905-hello-gridea/">
+        </link>
+        <updated>2020-09-04T22:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>👏  本网站使用 <strong>Gridea</strong>创建 ！</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>👏  本网站使用 <strong>Gridea</strong>创建 ！</p>
+<!-- more -->
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Markdown Test]]></title>
+        <id>https://xiaozhezju.github.io/post/20190216-markdown-test/</id>
+        <link href="https://xiaozhezju.github.io/post/20190216-markdown-test/">
+        </link>
+        <updated>2019-02-16T13:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>本文章对一些markdown语法进行测试</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>本文章对一些markdown语法进行测试</p>
+<!-- more -->
+<h3 id="syntax-highlight">Syntax highlight</h3>
+<h5 id="python">python</h5>
+<pre><code class="language-python">import os
+os.getcwd()
+os.chdir('~/Desktop')
+print('test approved')
+</code></pre>
+<h5 id="r">R</h5>
+<pre><code class="language-R">library(ggplot2)
+iris_test = iris
+a &lt;- c(1,2,3)
+b &lt;- c(2,3,4)
+p &lt;- ggplot(a,b)
+</code></pre>
+<h5 id="bash">bash</h5>
+<pre><code class="language-bash">ssh -i file.pem
+</code></pre>
+<h5 id="mysql">Mysql</h5>
+<pre><code class="language-mysql">select * from `order` where city in ('墨尔本', '悉尼');
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hello World]]></title>
+        <id>https://xiaozhezju.github.io/post/20190216-Hello-World/</id>
+        <link href="https://xiaozhezju.github.io/post/20190216-Hello-World/">
+        </link>
+        <updated>2019-02-16T04:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>My first blog</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>My first blog</p>
+<!-- more -->
+<blockquote>
+<p>That's one small step for man, one giant leap for mankind.</p>
+<p>​                				          Neil Alden Armstrong</p>
+</blockquote>
+<p>The most amazing thing about this world is that it is full of unpredictability.  Just as forrest gump said “My mom always said life was like a box of chocolates. You never know what you're gonna get.” , you never know where you will go and how high you will achieve until you take action and do it.</p>
+<p>Hope, hope is the most valuable diamond owned by human beings. Just believe, believe all ambitions will finally be realised, and burn your energy to acheive this goal. Success will be with us, and time will witness this glorious procedure.</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AWS Config]]></title>
+        <id>https://xiaozhezju.github.io/post/20190216-AWS-Config/</id>
+        <link href="https://xiaozhezju.github.io/post/20190216-AWS-Config/">
+        </link>
+        <updated>2019-02-15T22:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>setup procedures for rds database and EC2 Linux server</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>setup procedures for rds database and EC2 Linux server</p>
+<!-- more -->
+<h1 id="aws">AWS</h1>
+<h2 id="rds">rds</h2>
+<p>Rds is short for redshift, which is a product of aws for data warehouse and database.<br>
+Steps for your rds configuration:</p>
+<ol>
+<li>
+<p>sign up &amp; log into your aws console</p>
+</li>
+<li>
+<p>choose database --&gt; rds</p>
+</li>
+<li>
+<p>click create database and setup your database following guidance (using default setting is okay)</p>
+</li>
+<li>
+<p>recommended setting: free tier, engine is Mysql</p>
+</li>
+<li>
+<p>Connect to your database: In terminal</p>
+</li>
+</ol>
+<pre><code class="language-bash">mysql -u username -p pwd -h endpoind 
+</code></pre>
+<p>Please remember your username and password when config your database<br>
+If you use third party software to connect to database, you may also need to provide port<br>
+Endpoint and portcan be found in database --&gt; Connectivity&amp;Security --&gt; Endpoint&amp;Port</p>
+<p>Notice: If you find that you cannot connect to database with correct username and password, please check your security group and change the Inbound IP address to 'All IP' to allow different IP addresses to visit your database.</p>
+<h2 id="ec2">EC2</h2>
+<p>EC2 is a Linux&amp;Windows server for completing computing work online<br>
+Steps for your EC2 configuration:</p>
+<ol>
+<li>
+<p>sign up &amp; log into your aws console</p>
+</li>
+<li>
+<p>choose compute --&gt; EC2</p>
+</li>
+<li>
+<p>click launch instance and setup your database following guidance (using default setting is okay)</p>
+</li>
+<li>
+<p>recommended setting: free tire, Linux, both Ubuntu and CentOS are fine</p>
+</li>
+<li>
+<p>download your pem key file in your computer</p>
+</li>
+<li>
+<p>Open terminal and change the directory to the one where the file above locates</p>
+</li>
+<li>
+<p>input:</p>
+</li>
+</ol>
+<pre><code class="language-bash">chomd 400 pem_file
+</code></pre>
+<p>to make the file become read-only</p>
+<ol start="8">
+<li>connect to the server in terminal</li>
+</ol>
+<pre><code class="language-bash">ssh -i directory/pem_file serverName@IVP4 public IP
+</code></pre>
+<p>serverName is the name of operation system by default. For example, 'ubuntu' for Ubuntu OS and 'centos' OS<br>
+IVP4 public IP can be found in console --&gt; Instances --&gt; Description</p>
+<p>Notice: If you find that you cannot connect to server with correct pem file and IP, please check your security group and change the Inbound IP address to 'All IP' to allow different IP addresses to visit your server.</p>
+]]></content>
+    </entry>
+</feed>
